@@ -1,10 +1,11 @@
 <template>
 	<div>
-		SelectTwo
+		portfolio
 	</div>
 </template>
 <script>
 export default{
+	name:'portfolio',
 	data(){
 		return {
 
@@ -13,9 +14,5 @@ export default{
 }	
 </script>
 <style scoped>
-div{
-	background:blue;
-	width:100%;
-	height:100px;
-}
+
 </style>

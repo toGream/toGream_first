@@ -1,11 +1,11 @@
 <template>
 	<div class="app-head">
 		<div class="app-head-inner">
-			<img src="../assets/logo.png">
+			<img src="../assets/img/logo.png">
 			<div class="head-nav">
 				<ul class="nav-list">
 					<li v-for="menu in menus">
-						<a target="_blank" :href="menu.url">{{menu.title}}</a>
+						<router-link :to="menu.url">{{menu.title}}</router-link>
 					</li>
 				</ul>	
 			</div>
@@ -18,12 +18,12 @@ export default{
 	data(){
 		return{
 			menus:[
-			{title:"HOME",url:'www.baidu.com'},
-			{title:"ABOUT US",url:"www.baidu.com"},
-			{title:"COURSES",url:"www.baidu.com"},
-			{title:"PORTFOLIO",url:"www.baidu.com"},
-			{title:"PRICING",url:"www.baidu.com"},
-			{title:"CONTACT",url:"www.baidu.com"}
+			{title:"HOME",url:'/'},
+			{title:"ABOUT US",url:"about"},
+			{title:"COURSES",url:"courses"},
+			{title:"PORTFOLIO",url:"portfolio"},
+			{title:"PRICING",url:"pricing"},
+			{title:"CONTACT",url:"contact"}
 			]
 		}
 	}
