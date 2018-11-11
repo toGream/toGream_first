@@ -4,7 +4,7 @@
 			<swiper :options="swiperOption">
 			    	<swiper-slide>
 			    		<a targer="_blank" href="http://www.wwtliu.com/blog">
-			    			<img class="swiperimg" src="@/assets/slides/1.jpg" style='width:100%'>
+			    			<img class="swiperimg" src="@/assets/img/slides/1.jpg" style='width:100%'>
 			    		</a>
 			    		<div class="flex-caption">
 			    			<div class="item_introtext">
@@ -15,7 +15,7 @@
 			    	</swiper-slide>
 			    	<swiper-slide>
 			    		<a targer="_blank" href="http://www.wwtliu.com/blog">
-			    			<img class="swiperimg" src="@/assets/slides/2.jpg" style='width:100%'>
+			    			<img class="swiperimg" src="@/assets/img/slides/2.jpg" style='width:100%'>
 			    		</a>
 			    		<div class="flex-caption">
 			    			<div class="item_introtext">
@@ -26,7 +26,7 @@
 			    	</swiper-slide>
 			    	<swiper-slide>
 			    		<a targer="_blank" href="http://www.wwtliu.com/blog">
-			    			<img class="swiperimg" src="@/assets/slides/3.jpg" style='width:100%'>
+			    			<img class="swiperimg" src="@/assets/img/slides/3.jpg" style='width:100%'>
 			    		</a>
 			    		<div class="flex-caption">
 			    			<div class="item_introtext">
