@@ -16,15 +16,20 @@
 
                         <ul class="portfolio-categ filter">
                             <li v-for="topic in topics">
-                                <a href="#">{{topic}}</a>
+                                <a href="#" @click="switchPicture(topic.type)">{{topic.title}}</a>
                             </li>
                         </ul>
 
                         <div class="list-row">
                             <div id="projects">
                                 <ul id="thumbs">
-                                    <li class="item-thumbs col-lg-3" v-for="thumb in thumbs">
-                                        <img :src="thumb.url"/>
+                                    <li>
+                                        <viewer :images="thumbs">
+                                            <transition v-bind:css="false" v-on:before-enter="beforeEnter" 
+                                                        v-on:enter="enter" v-on:leave="leave" v-for="thumb in thumbs">
+                                                <img :src="thumb.url" :key="thumb.url" class="item-thumbs col-lg-3" v-if="selectType==thumb.dataType || selectType=='all'">
+                                            </transition>
+                                        </viewer>
                                     </li>
                                 </ul>
                             </div>
@@ -36,23 +41,68 @@
 	</div>
 </template>
 <script>
+
 export default{
 	name:'portfolio',
 	data(){
 		return {
-            topics:["All","Web design","Mobile App","UI design"],
+            topics:[
+                {title:"All",type:"all"},
+                {title:"Web design",type:"web"},
+                {title:"Mobile App",type:"icon"},
+                {title:"UI design",type:"graphic"}
+            ],
             thumbs:[
-                {url:require("../assets/img/works/1.jpg")},
-                {url:require("../assets/img/works/2.jpg")},
-                {url:require("../assets/img/works/3.jpg")},
-                {url:require("../assets/img/works/4.jpg")},
-                {url:require("../assets/img/works/5.jpg")},
-                {url:require("../assets/img/works/6.jpg")},
-                {url:require("../assets/img/works/7.jpg")},
-                {url:require("../assets/img/works/8.jpg")}
-            ]
+                {url:require("../assets/img/works/1.jpg"),dataType:"web"},
+                {url:require("../assets/img/works/2.jpg"),dataType:"icon"},
+                {url:require("../assets/img/works/3.jpg"),dataType:"graphic"},
+                {url:require("../assets/img/works/4.jpg"),dataType:"web"},
+                {url:require("../assets/img/works/5.jpg"),dataType:"web"},
+                {url:require("../assets/img/works/6.jpg"),dataType:"icon"},
+                {url:require("../assets/img/works/7.jpg"),dataType:"web"},
+                {url:require("../assets/img/works/8.jpg"),dataType:"graphic"}
+            ],
+            selectType: 'all',
+            fadeInDuration: 1000,
+            fadeOutDuration: 1000,
+            maxFadeDuration: 1500,
+            stop: true
 		}
-	}
+	},
+    methods:{
+        switchPicture: function(type){
+            this.selectType = type
+        },
+        beforeEnter: function (el) {
+          el.style.opacity = 0
+        },
+        enter: function (el, done) {
+          // var vm = this
+          Velocity(el,
+            { opacity: 1 },
+            {
+              duration: this.fadeInDuration,
+              complete: function () {
+                done()
+                // if (!vm.stop) vm.show = false
+              }
+            }
+          )
+        },
+        leave: function (el, done) {
+          // var vm = this
+          Velocity(el,
+            { opacity: 0 },
+            {
+              duration: this.fadeOutDuration,
+              complete: function () {
+                done()
+                // vm.show = true
+              }
+            }
+          )
+        }
+    }
 }	
 </script>
 <style scoped>
@@ -153,7 +203,7 @@ a:-webkit-any-link {
 #thumbs {
     margin: 0;
     padding: 0;
-    height: 370px;
+    height: auto;
     width:1160px;
 }
 #thumbs li {
@@ -169,11 +219,11 @@ a:-webkit-any-link {
     cursor: pointer;
 }
 .col-lg-3 {
-    width: 21%;
-    float: left;
+    width: 22%;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
+    float:left;
 }
 img{
     max-width: 100%;

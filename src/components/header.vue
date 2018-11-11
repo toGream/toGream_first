@@ -14,7 +14,7 @@
 </template>
 <script>
 export default{
-	name:'header',
+	name:'header1',
 	data(){
 		return{
 			menus:[
