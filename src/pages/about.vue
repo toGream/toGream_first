@@ -98,10 +98,12 @@
                     </div>
                     <br>
                     <div class="team-six">
-                        <div class="list-row" v-for="member in members">
-                            <div class="col-md-3 col-sm-6">
+                        <div class="list-row">
+                            <div class="col-md-3 col-sm-6" v-for="member in members">
                                 <div class="team-member">
-                                    <img class="img-responsive" :src="member" :alt="member">
+                                    <img class="img-responsive" :src="member.url" :alt="member">
+                                    <h4>{{member.name}}</h4>
+                                    <span>{{member.deg}}</span>
                                 </div>
                             </div>
                         </div>
@@ -136,10 +138,10 @@ export default{
                 {title:"Development", percentage:"40", color:"#409EFF"}
             ],
             members:[
-                require("../assets/img/team1.jpg"),
-                require("../assets/img/team2.jpg"),
-                require("../assets/img/team3.jpg"),
-                require("../assets/img/team4.jpg")
+                {name:"Johne Doe", deg:"Creative", url:require("../assets/img/team1.jpg")},
+                {name:"Jennifer", deg:"Programmer", url:require("../assets/img/team2.jpg")},
+                {name:"Christean", deg:"CEO", url:require("../assets/img/team3.jpg")},
+                {name:"Kerinele rase", deg:"Manager", url:require("../assets/img/team4.jpg")}
             ]
 		}
 	}
@@ -314,6 +316,7 @@ h6 {
 .col-md-3 {
     width: 25%;
     float: left;
+    display:block;
 }
 .col-md-3 .col-sm-6{
     position: relative;
@@ -323,8 +326,9 @@ h6 {
 }
 .team-member {
     text-align: center;
-    background-color: #F9F9F9;
     padding-bottom: 15px;
+    background: #F9F9F9;
+    margin:10px;
 }
 #content img {
     max-width: 100%;
@@ -332,10 +336,11 @@ h6 {
 }
 .img-responsive {
     display: block;
-}
-img {
+    background:#FFF;
     vertical-align: middle;
     border:0;
+    width:270px;
+    height:270px;
 }
 </style>
 <style>
