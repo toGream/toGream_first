@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="list-row">
 					<div class="col-lg-12">
-						<h2 class="pageTitle">About Us</h2>
+						<h2 class="pageTitle">基础知识</h2>
 					</div>
 				</div>
 			</div>

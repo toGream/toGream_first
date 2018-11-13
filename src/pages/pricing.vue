@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="list-row">
 					<div class="col-lg-12">
-						<h2 class="pageTitle">Pricing</h2>
+						<h2 class="pageTitle">消息中心</h2>
 					</div>
 				</div>
 			</div>            
@@ -21,7 +21,7 @@
                                 </h3>
                             </div>
                             <div class="pricing-terms">
-                                <h6>${{price.amount}}.00 / Year</h6>
+                                <h6>{{price.amount}}%</h6>
                             </div>
                             <div class="pricing-container">
                                 <ul>

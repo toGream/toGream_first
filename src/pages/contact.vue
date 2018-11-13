@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="list-row">
 					<div class="col-lg-12">
-						<h2 class="pageTitle">Contact</h2>
+						<h2 class="pageTitle">联系我</h2>
 					</div>
 				</div>
 			</div>
@@ -16,10 +16,41 @@
                     <div class="list-row">
                         <div class="col-lg-12">
                             <div>
-                                <h3>Courses We Offer</h3>
-                                <span class="clear spacer_responsive_hide_mobile ">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus, vero mollitia velit ad consectetur. Alias, laborum excepturi nihil autem nemo numquam, ipsa architecto non, magni consequuntur quam.
-                                </span>
+                                <h3>如果您有针对本站的任何意见、建议、错误报告，或者针对我的合作交流，请与我及时联系。</h3>
+                                <br>
+                                <p class="clear spacer_responsive_hide_mobile">
+                                    为了防止垃圾邮件的骚扰，烦请使用此网页中的邮件发送表单给我发送邮件。邮件将直达我的服务器，不必中转。
+                                </p>
+
+                                <div class="contact">
+                                    <el-form ref="form" :model="form" label-width="80px">
+                                        <el-form-item label="类型">
+                                        <el-select v-model="form.type" placeholder="请选择">
+                                          <el-option label="一般交流" value="0"></el-option>
+                                          <el-option label="技术交流" value="1"></el-option>
+                                          <el-option label="广告投放" value="2"></el-option>
+                                          <el-option label="链接交换" value="3"></el-option>
+                                          <el-option label="网站意见，错误报告" value="4"></el-option>
+                                        </el-select>
+                                      </el-form-item>
+                                      <el-form-item label="标题">
+                                        <el-input v-model="form.title" placeholder="请输入标题" clearable></el-input>
+                                      </el-form-item>
+                                      <el-form-item label="联系姓名">
+                                        <el-input v-model="form.contactName"  placeholder="请输入联系姓名" clearable></el-input>
+                                      </el-form-item>
+                                      <el-form-item label="邮箱">
+                                        <el-input v-model="form.emailAddress"  placeholder="请输入邮箱" clearable></el-input>
+                                      </el-form-item>
+                                      <el-form-item label="正文">
+                                        <el-input type="textarea" v-model="form.desc"  placeholder="请输入正文" rows="5"></el-input>
+                                      </el-form-item>
+                                      <el-form-item>
+                                        <el-button type="primary" @click="onSubmit">提交问题</el-button>
+                                        <el-button>取消</el-button>
+                                      </el-form-item>
+                                    </el-form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,9 +64,20 @@ export default{
 	name:'contact',
 	data(){
 		return {
-
+            form: {
+              title: '',
+              type: '',
+              contactName:'',
+              emailAddress: '',
+              desc: ''
+            }
 		}
-	}
+	},
+    methods: {
+      onSubmit() {
+        console.log('submit!');
+      }
+    }
 }	
 </script>
 <style scoped>
@@ -79,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.1em;
     color: #333;
-    margin-top: 20px;
+    margin: 20px 0 0 10px;
 }
 h2{
     font-size: 30px;
@@ -101,5 +143,21 @@ h2 {
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
+}
+.clear{
+    clear: both;
+}
+.spacer_responsive_hide_mobile{
+    height: 13px;
+    display: block;
+}
+p{
+    margin-left:10px;
+}
+.contact{
+    margin-top:25px;
+    background:#14A085;
+    display:block;
+    padding:10px;
 }
 </style>

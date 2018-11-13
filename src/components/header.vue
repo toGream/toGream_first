@@ -17,13 +17,21 @@ export default{
 	name:'header1',
 	data(){
 		return{
+			// menus:[
+			// {title:"HOME",url:'/'},
+			// {title:"ABOUT US",url:"about"},
+			// {title:"COURSES",url:"courses"},
+			// {title:"PORTFOLIO",url:"portfolio"},
+			// {title:"PRICING",url:"pricing"},
+			// {title:"CONTACT",url:"contact"}
+			// ]
 			menus:[
-			{title:"HOME",url:'/'},
-			{title:"ABOUT US",url:"about"},
-			{title:"COURSES",url:"courses"},
-			{title:"PORTFOLIO",url:"portfolio"},
-			{title:"PRICING",url:"pricing"},
-			{title:"CONTACT",url:"contact"}
+			{title:"首页",url:'/'},
+			{title:"基础知识",url:"about"},
+			{title:"学习资料",url:"courses"},
+			{title:"图片分享",url:"portfolio"},
+			{title:"消息中心",url:"pricing"},
+			{title:"联系我",url:"contact"}
 			]
 		}
 	}
