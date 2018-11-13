@@ -23,8 +23,8 @@
                                 </p>
 
                                 <div class="contact">
-                                    <el-form ref="form" :model="form" label-width="80px">
-                                        <el-form-item label="类型">
+                                    <el-form ref="form" :rules="rules" :model="form" label-width="80px">
+                                        <el-form-item label="类型" prop="type">
                                         <el-select v-model="form.type" placeholder="请选择">
                                           <el-option label="一般交流" value="0"></el-option>
                                           <el-option label="技术交流" value="1"></el-option>
@@ -33,21 +33,21 @@
                                           <el-option label="网站意见，错误报告" value="4"></el-option>
                                         </el-select>
                                       </el-form-item>
-                                      <el-form-item label="标题">
+                                      <el-form-item label="标题" prop="title">
                                         <el-input v-model="form.title" placeholder="请输入标题" clearable></el-input>
                                       </el-form-item>
-                                      <el-form-item label="联系姓名">
+                                      <el-form-item label="联系姓名" prop="contactName">
                                         <el-input v-model="form.contactName"  placeholder="请输入联系姓名" clearable></el-input>
                                       </el-form-item>
-                                      <el-form-item label="邮箱">
+                                      <el-form-item label="邮箱" prop="emailAddress">
                                         <el-input v-model="form.emailAddress"  placeholder="请输入邮箱" clearable></el-input>
                                       </el-form-item>
-                                      <el-form-item label="正文">
+                                      <el-form-item label="正文" prop="desc">
                                         <el-input type="textarea" v-model="form.desc"  placeholder="请输入正文" rows="5"></el-input>
                                       </el-form-item>
                                       <el-form-item>
-                                        <el-button type="primary" @click="onSubmit">提交问题</el-button>
-                                        <el-button>取消</el-button>
+                                        <el-button type="primary" @click="submitForm('form')">提交问题</el-button>
+                                        <el-button @click="resetForm('form')">重置</el-button>
                                       </el-form-item>
                                     </el-form>
                                 </div>
@@ -70,12 +70,42 @@ export default{
               contactName:'',
               emailAddress: '',
               desc: ''
+            },
+            rules: {
+              title: [
+                { required: true, message: '请输入标题', trigger: 'blur' },
+                { min: 3, max: 30, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+              ],
+              type: [
+                {required: true, message: '请至少选择一种类型', trigger: 'change' }
+              ],
+              contactName: [
+                { required: true, message: '请输入联系姓名', trigger: 'blur' },
+                { min: 3, max: 30, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+              ],
+              emailAddress: [
+                { required: true, message: '请输入邮箱', trigger: 'blur' },
+                { min: 3, max: 30, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+              ],
+              desc: [
+                { required: true, message: '请填正文', trigger: 'blur' }
+              ]
             }
 		}
 	},
     methods: {
-      onSubmit() {
-        console.log('submit!');
+       submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
       }
     }
 }	
