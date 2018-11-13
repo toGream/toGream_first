@@ -9,6 +9,23 @@
 				</div>
 			</div>
 		</div>
+
+        <div id="inner-content">
+            <div class="container">
+                <div class="course">
+                    <div class="list-row">
+                        <div class="col-lg-12">
+                            <div>
+                                <h3>Courses We Offer</h3>
+                                <span class="clear spacer_responsive_hide_mobile ">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus omnis minus temporibus perferendis nesciunt quam repellendus nulla nemo ipsum odit corrupti consequuntur possimus, vero mollitia velit ad consectetur. Alias, laborum excepturi nihil autem nemo numquam, ipsa architecto non, magni consequuntur quam.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
 	</div>
 </template>
 <script>
@@ -72,5 +89,17 @@ h2 {
     -webkit-margin-after: 0.83em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+}
+#inner-content {
+    position: relative;
+    background: #fff;
+    padding: 50px 0 0px 0;
+    width: 100%;
+}
+.col-lg-12 {
+    width: 100%;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 </style>

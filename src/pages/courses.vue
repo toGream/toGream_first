@@ -140,13 +140,6 @@ h2 {
     padding: 50px 0 0px 0;
     width: 100%;
 }
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-weight: 700;
-    line-height: 1.1em;
-    color: #333;
-    margin-bottom: 20px;
-}
 h1, h2, h3{
     margin-top: 20px;
     margin-bottom: 10px;
